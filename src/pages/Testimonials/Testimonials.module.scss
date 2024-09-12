@@ -1,0 +1,16 @@
+.calcWidth {
+	width: 100%;
+}
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+	.main_content {
+		width: 100%;
+		overflow: hidden;
+	}
+}
+
+@media (min-width: 1440px) {
+	.calcWidth {
+		width: calc((100% / 3) - 30px);
+	}
+}

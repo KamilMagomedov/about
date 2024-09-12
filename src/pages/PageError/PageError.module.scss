@@ -1,0 +1,27 @@
+.errorPage {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	.textAboutError {
+		@apply text-darkMain;
+
+		font-size: 30px;
+		font-weight: 700;
+	}
+
+	.updateButton {
+		@apply bg-darkMain;
+
+		display: block;
+		padding-left: 24px;
+		padding-right: 24px;
+		line-height: 59px;
+		color: #ffffff;
+		font-size: 16px;
+		font-weight: 400;
+	}
+}

@@ -1,0 +1,21 @@
+.list {
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: row;
+
+	.item {
+		.linkPages {
+			display: block;
+			padding-left: 20px;
+			padding-right: 20px;
+			line-height: 59px;
+			font-size: 16px;
+			font-weight: 400;
+			color: white;
+		}
+
+		&:not(:last-child) {
+			margin-right: 1px;
+		}
+	}
+}

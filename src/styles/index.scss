@@ -1,0 +1,65 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html,
+body,
+#root {
+	height: 100%;
+}
+
+div > ul,
+ol {
+	list-style-type: decimal;
+	margin-left: 24px;
+}
+
+body {
+	@apply font-sans;
+	font-size: 14px;
+	font-weight: 400;
+	background: #ffffff;
+	color: #a5a5a5;
+
+	.ReactModalPortal {
+		z-index: 50;
+		position: fixed;
+	}
+
+	p {
+		@apply font-sans;
+		font-size: 14px;
+		line-height: 1.85714;
+		font-weight: 500;
+		color: #838293;
+	}
+
+	.logo {
+		font-size: 36px;
+		font-weight: 800;
+	}
+
+	.toggleTheme,
+	.throwButton {
+		height: 59px;
+		min-width: 130px;
+		padding: 0 22px;
+		white-space: nowrap;
+	}
+
+	.throwButton {
+		background: #8583e1;
+		color: #ffffff;
+	}
+
+	.descriptionModal p {
+		font-size: 24px;
+		color: white;
+	}
+}
+
+@media (min-width: 320px) and (max-width: 991px) {
+	body .descriptionModal p {
+		font-size: 16px;
+	}
+}

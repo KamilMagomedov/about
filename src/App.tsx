@@ -17,6 +17,7 @@ import Menu from '@/components/Menu/Menu'
 import { IRoutes } from './hooks/interfaces'
 import '@/styles/index.scss'
 import { DataContext } from './context/dataContext'
+import { Link } from 'react-router-dom'
 
 export default function App() {
 	const { toggleTheme } = useTheme()
@@ -47,9 +48,12 @@ export default function App() {
 						isDarkTheme ? 'dark:bg-[#1C1C1C]' : 'bg-white'
 					} `}
 				>
-					<div className={`logo mr-12 text-3xl sm:mr-0 sm:text-[25px] ${isDarkTheme ? 'text-white' : 'text-darkMain'}`}>
+					<Link
+						to='/'
+						className={`logo mr-12 text-3xl sm:mr-0 sm:text-[25px] ${isDarkTheme ? 'text-white' : 'text-darkMain'}`}
+					>
 						Kamil<span className={`${isDarkTheme ? 'text-[#5C5BEE]' : 'text-[#8583e1]'}`}>.</span>CV
-					</div>
+					</Link>
 					<nav className='main_nav hidden w-full items-center 2xl:flex'>
 						<Menu isDarkTheme={isDarkTheme} menuList={menuList} />
 					</nav>

@@ -66,10 +66,8 @@ const Testimonials: React.FC = () => {
 				isDarkTheme ? 'bg-[#2A2A2A]' : 'bg-[#f5f0f0]'
 			} 2xl:flex-row 2xl:overflow-y-auto`}
 		>
-			<div
-				className={`${classes.main_content} h-full w-calc-aside pl-[82px] pr-[30px] sm:w-full sm:px-[15px] sm:py-5 lg:px-[30px] lg:py-[30px] xl:px-[80px] xl:pt-[90px]`}
-			>
-				<div className='main_title_container flex flex-col items-start justify-end sm:mb-[30px] xl:mb-[72px]'>
+			<div className={`${classes.main_content} main_content`}>
+				<div className='main_title_container'>
 					<p
 						className={`main_subtitle mb-3 font-medium leading-8 ${
 							isDarkTheme ? 'text-[#C2C2C2]' : 'text-[#7a798c]'
@@ -88,13 +86,16 @@ const Testimonials: React.FC = () => {
 				<div className='testimonials_carousel_scrollIndicator relative'>
 					<div className='testimonials_block relative overflow-hidden sm:mb-[60px]'>
 						<div
-							className='testimonials_carousel flex transition-transform duration-500'
+							className='testimonials_carousel flex items-stretch transition-transform duration-500'
 							style={{
 								transform: `translateX(-${(currentIndex * 100) / itemsPerPage}%)`
 							}}
 						>
 							{testimonials.map(item => (
-								<div key={item.id} className={`flex-shrink-0 ${classes.calcWidth} 3xl:mr-[30px]`}>
+								<div
+									key={item.id}
+									className={`flex-shrink-0 ${classes.calcWidth} flex grow self-stretch 3xl:mr-[30px]`}
+								>
 									<TestimonialsContainer
 										title={item.title}
 										text={item.text}

@@ -58,6 +58,18 @@ body {
 	}
 }
 
+.main_title_container {
+	@apply flex flex-col items-start justify-end sm:mb-[30px] xl:mb-[72px];
+}
+
+.main_content {
+	@apply h-auto w-calc-aside pl-[82px] pr-[30px] sm:w-full sm:px-[15px] sm:py-5 lg:px-[30px] lg:py-[30px] xl:px-[80px] xl:pt-[90px];
+}
+
+.form__input {
+	@apply mb-2 h-10 w-full border-b-2 bg-transparent text-black outline-none transition-all-200 hover:border-b-lightBlue;
+}
+
 @media (min-width: 320px) and (max-width: 991px) {
 	body .descriptionModal p {
 		font-size: 16px;

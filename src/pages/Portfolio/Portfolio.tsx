@@ -64,8 +64,8 @@ const Portfolio: React.FC = () => {
 				isDarkTheme ? 'bg-[#2A2A2A]' : 'bg-[#f5f0f0]'
 			} relative 2xl:flex-row 2xl:overflow-y-auto`}
 		>
-			<div className='main_content h-full w-calc-aside pl-[82px] pr-[30px] sm:w-full sm:px-[15px] sm:py-5 lg:px-[30px] lg:py-[30px] xl:px-[80px] xl:pt-[90px]'>
-				<div className='main_title_container flex flex-col items-start justify-end sm:mb-[10px] xl:mb-[72px]'>
+			<div className='main_content'>
+				<div className='main_title_container'>
 					<p
 						className={`main_subtitle mb-3 font-medium leading-8 ${
 							isDarkTheme ? 'text-[#C2C2C2]' : 'text-[#7a798c]'
@@ -95,7 +95,7 @@ const Portfolio: React.FC = () => {
 						))}
 					</ul>
 					<TransitionGroup
-						className={`content_tabs flex items-stretch sm:flex-col sm:pb-[30px] lg:flex-row lg:flex-wrap lg:justify-center 2xl:justify-start 2xl:overflow-auto 3xl:max-h-[440px] 4xl:max-h-[620px]`}
+						className={`content_tabs flex items-stretch sm:flex-col sm:pb-[30px] lg:flex-row lg:flex-wrap lg:justify-start 2xl:overflow-auto 3xl:max-h-[440px] 4xl:max-h-[620px]`}
 					>
 						{projectsToShow.map(tab => {
 							if (!nodeRefs.current.has(tab.id)) {

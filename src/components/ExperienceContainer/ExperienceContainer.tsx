@@ -30,7 +30,10 @@ const ExperienceContainer: React.FC<IExperienceContainer> = ({
 							{company}
 						</p>
 					</div>
-					<div className='exp_text' dangerouslySetInnerHTML={{ __html: description || '' }}></div>
+					<div
+						className={`exp_text ${isDarkTheme ? 'text-[#C2C2C2]' : 'text-mediumGray'}`}
+						dangerouslySetInnerHTML={{ __html: description || '' }}
+					></div>
 				</div>
 			</div>
 		</div>

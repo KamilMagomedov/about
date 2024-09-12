@@ -26,8 +26,6 @@ const ContactForm: React.FC<IContactProps> = ({ description, successMessage, isD
 		}
 	}
 
-	const commonInputClasses =
-		'contact_input mb-4 h-10 w-full border-b-2 bg-transparent text-black outline-none transition-all-200 hover:border-b-lightBlue'
 	const errorBorderClass = 'border-red-500'
 	const normalBorderClass = 'border-b-[#a5a5a5]'
 
@@ -39,91 +37,99 @@ const ContactForm: React.FC<IContactProps> = ({ description, successMessage, isD
 			></p>
 
 			<form onSubmit={handleSubmit(submitForm)}>
-				<div className='parent_name_email flex sm:flex-col lg:relative lg:flex-row'>
+				<div className='parent_name_email mb-5 flex w-full gap-[5%] sm:flex-col lg:relative lg:flex-row'>
+					<div className='grow'>
+						<input
+							type='text'
+							className={`form__input ${errors.name ? errorBorderClass : normalBorderClass} ${isDarkTheme ? 'text-white' : 'text-black'}`}
+							placeholder='Name'
+							{...register('name', {
+								required: 'Name is required'
+							})}
+						/>
+						{errorValidations.name && (
+							<div>
+								{errorValidations.name.map((err, i) => (
+									<p key={i} className='text-red-500'>
+										{err}
+									</p>
+								))}
+							</div>
+						)}
+						{errors.name && <div className='text-red-500'>{errors.name.message}</div>}
+					</div>
+					<div className='grow'>
+						<input
+							type='email'
+							className={`form__input ${
+								errors.email ? errorBorderClass : normalBorderClass
+							} ${isDarkTheme ? 'text-white' : 'text-black'}`}
+							placeholder='E-mail'
+							{...register('email', {
+								required: 'Email is required',
+								pattern: {
+									value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+									message: 'Please enter a valid email address'
+								}
+							})}
+						/>
+						{errorValidations.email && (
+							<div>
+								{errorValidations.email.map((err, i) => (
+									<p className='text-red-500' key={i}>
+										{err}
+									</p>
+								))}
+							</div>
+						)}
+						{errors.email && <div className='text-red-500'>{errors.email.message}</div>}
+					</div>
+				</div>
+
+				<div className='mb-5'>
 					<input
 						type='text'
-						className={`${commonInputClasses} ${errors.name ? errorBorderClass : normalBorderClass} lg:mr-[30px] ${isDarkTheme ? 'text-white' : 'text-black'}`}
-						placeholder='Name'
-						{...register('name', {
-							required: 'Name is required'
+						className={`form__input ${
+							errors.subject ? errorBorderClass : normalBorderClass
+						} ${isDarkTheme ? 'text-white' : 'text-black'} mb-5`}
+						placeholder='Subject'
+						{...register('subject', {
+							required: 'Subject is required'
 						})}
 					/>
-					{errorValidations.name && (
+					{errorValidations.subject && (
 						<div>
-							{errorValidations.name.map((err, i) => (
-								<p key={i} className='mt-[-15px] text-red-500'>
-									{err}
-								</p>
-							))}
-						</div>
-					)}
-					{errors.name && <div className='mt-[-15px] text-red-500'>{errors.name.message}</div>}
-					<input
-						type='email'
-						className={`${commonInputClasses} ${
-							errors.email ? errorBorderClass : normalBorderClass
-						} ${isDarkTheme ? 'text-white' : 'text-black'}`}
-						placeholder='E-mail'
-						{...register('email', {
-							required: 'Email is required',
-							pattern: {
-								value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-								message: 'Please enter a valid email address'
-							}
-						})}
-					/>
-					{errorValidations.email && (
-						<div className='mt-[-15px]'>
-							{errorValidations.email.map((err, i) => (
+							{errorValidations.subject.map((err, i) => (
 								<p className='text-red-500' key={i}>
 									{err}
 								</p>
 							))}
 						</div>
 					)}
-					{errors.email && <div className='mt-[-15px] text-red-500'>{errors.email.message}</div>}
+					{errors.subject && <div className='text-red-500'>{errors.subject.message}</div>}
 				</div>
 
-				<input
-					type='text'
-					className={`${commonInputClasses} ${
-						errors.subject ? errorBorderClass : normalBorderClass
-					} ${isDarkTheme ? 'text-white' : 'text-black'}`}
-					placeholder='Subject'
-					{...register('subject', {
-						required: 'Subject is required'
-					})}
-				/>
-				{errorValidations.subject && (
-					<div className='mt-[-15px]'>
-						{errorValidations.subject.map((err, i) => (
-							<p className='text-red-500' key={i}>
-								{err}
-							</p>
-						))}
-					</div>
-				)}
-				{errors.subject && <div className='mt-[-15px] text-red-500'>{errors.subject.message}</div>}
-
-				<textarea
-					className={`mb-[26px] h-[125px] w-full border-b-2 bg-transparent ${
-						isDarkTheme ? 'text-white' : 'text-black'
-					} outline-none transition-all-200 hover:border-b-lightBlue ${errors.message ? errorBorderClass : normalBorderClass}`}
-					placeholder='Message'
-					{...register('message', {
-						required: 'Message is required'
-					})}
-				></textarea>
-				{errorValidations.message && (
-					<div className='mt-[-15px]'>
-						{errorValidations.message.map((err, i) => (
-							<p className='text-red-500' key={i}>
-								{err}
-							</p>
-						))}
-					</div>
-				)}
-				{errors.message && <div className='mb-5 mt-[-15px] text-red-500'>{errors.message.message}</div>}
+				<div className='mb-5'>
+					<textarea
+						className={`h-[125px] w-full border-b-2 bg-transparent ${
+							isDarkTheme ? 'text-white' : 'text-black'
+						} outline-none transition-all-200 hover:border-b-lightBlue ${errors.message ? errorBorderClass : normalBorderClass}`}
+						placeholder='Message'
+						{...register('message', {
+							required: 'Message is required'
+						})}
+					></textarea>
+					{errorValidations.message && (
+						<div>
+							{errorValidations.message.map((err, i) => (
+								<p className='text-red-500' key={i}>
+									{err}
+								</p>
+							))}
+						</div>
+					)}
+					{errors.message && <div className='text-red-500'>{errors.message.message}</div>}
+				</div>
 
 				<button
 					type='submit'

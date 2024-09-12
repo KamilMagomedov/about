@@ -51,7 +51,7 @@ const Aside: React.FC = () => {
 							<ListGeneralInfo key={info.id} image={info.image} title={info.title} value={info.value} theme={theme} />
 						))}
 				</ul>
-				<div className='mb-5'>
+				<div className='mb-5 flex items-center justify-center gap-[10px]'>
 					{userInfo &&
 						userInfo.socialLinks.map(socialLink => (
 							<a

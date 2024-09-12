@@ -2,7 +2,7 @@ import axios from 'axios'
 import { IGet, IPost } from './interfaces'
 
 const instance = axios.create({
-	baseURL: 'http://portfolio.laravelhub.kyiv.ua/api/'
+	baseURL: 'https://portfolio.laravelhub.kyiv.ua/api/'
 })
 
 export const get = ({ path }: IGet) => {

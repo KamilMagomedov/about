@@ -30,7 +30,7 @@ export default function App() {
 	}
 
 	const menuList = useMemo((): IRoutes[] => {
-		return routes.slice(0, -1).map(route => {
+		return routes.slice(0, -2).map(route => {
 			route.isActive = locationPage.pathname === route.path
 			return route
 		})
@@ -95,6 +95,7 @@ export default function App() {
 				<Suspense>
 					<Routes>
 						<Route path='/' element={<About />} />
+						<Route path='/About' element={<About />} />
 						<Route path='/skills' element={<Skills />} />
 						<Route path='/services' element={<ServicesAsync />} />
 						<Route path='/experience' element={<ExperienceAsync />} />

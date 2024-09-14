@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { post } from '@/hooks/clients'
-import SuccessfulFormSubmission from './SuccessfulFormSubmission'
 import { IContactForm, IContactProps, IErrorValidations } from '@/hooks/interfaces'
+import { HTTP_CREATED, HTTP_INTERNAL_SERVER_ERROR, HTTP_UNPROCESSABLE_ENTITY } from '@/hooks/clients'
+import FormModalSuccess from './FormModalSuccess'
+import FormModalError from './FormModalError'
 
 const ContactForm: React.FC<IContactProps> = ({ description, successMessage, isDarkTheme }) => {
 	const {
@@ -13,16 +15,26 @@ const ContactForm: React.FC<IContactProps> = ({ description, successMessage, isD
 	} = useForm<IContactForm>()
 	const [errorValidations, setErrorValidations] = useState<Partial<IErrorValidations>>({})
 	const [isModalOpen, setIsModalOpen] = useState(false)
+	const [isModalOpenError, setIsModalOpenError] = useState(false)
+
 	const openModal = () => setIsModalOpen(true)
 
-	const submitForm: SubmitHandler<IContactForm> = data => {
+	const submitForm: SubmitHandler<IContactForm> = async data => {
 		setErrorValidations({})
 		try {
-			post({ path: 'contact-form', data: data })
-			reset()
-			openModal()
+			const response = await post({ path: 'contact-form', data: data })
+			if (response.status === HTTP_CREATED) {
+				openModal()
+				reset()
+			}
 		} catch (error) {
-			setErrorValidations(error.response.data.errors)
+			if (error.status === HTTP_UNPROCESSABLE_ENTITY) {
+				setErrorValidations(error.response.data.errors)
+			}
+
+			if (error.status === HTTP_INTERNAL_SERVER_ERROR) {
+				setIsModalOpenError(true)
+			}
 		}
 	}
 
@@ -138,11 +150,18 @@ const ContactForm: React.FC<IContactProps> = ({ description, successMessage, isD
 					Send Message
 				</button>
 			</form>
-			<SuccessfulFormSubmission
+
+			<FormModalSuccess
 				isModalOpen={isModalOpen}
-				isDarkTheme={isDarkTheme}
 				setIsModalOpen={setIsModalOpen}
+				isDarkTheme={isDarkTheme}
 				successMessage={successMessage}
+			/>
+			<FormModalError
+				isModalOpen={isModalOpenError}
+				setIsModalOpen={setIsModalOpenError}
+				isDarkTheme={isDarkTheme}
+				errorMessage='An error occurred while sending your message. Please try again later.'
 			/>
 		</div>
 	)

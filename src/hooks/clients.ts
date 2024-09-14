@@ -1,6 +1,10 @@
 import axios from 'axios'
 import { IGet, IPost } from './interfaces'
 
+export const HTTP_CREATED = 201
+export const HTTP_INTERNAL_SERVER_ERROR = 500
+export const HTTP_UNPROCESSABLE_ENTITY = 422
+
 const instance = axios.create({
 	baseURL: 'https://portfolio.laravelhub.kyiv.ua/api/'
 })
@@ -20,11 +24,5 @@ export const get = ({ path }: IGet) => {
 }
 
 export const post = ({ path, data }: IPost) => {
-	return instance
-		.post(path, data)
-		.then(response => response.data)
-		.catch(error => {
-			console.error('Error posting data:', error)
-			throw error
-		})
+	return instance.post(path, data)
 }

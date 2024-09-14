@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 interface IAboutItem {
 	id: number
 	percent: string
@@ -266,11 +268,24 @@ export interface IEducationInfo {
 	isDarkTheme: boolean
 }
 
-export interface ISuccessfulFormSubmission {
+export interface IModalContainer {
 	isModalOpen: boolean
 	isDarkTheme: boolean
 	setIsModalOpen: (isOpen: boolean) => void
+}
+
+export interface IFormSuccess {
+	isModalOpen: boolean
+	setIsModalOpen: (value: boolean) => void
+	isDarkTheme: boolean
 	successMessage: string
+}
+
+export interface IFormError {
+	isModalOpen: boolean
+	setIsModalOpen: (value: boolean) => void
+	isDarkTheme: boolean
+	errorMessage: string
 }
 
 export interface IContactForm {

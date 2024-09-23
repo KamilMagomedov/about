@@ -3,10 +3,45 @@ import { useContext, useEffect, useState } from 'react'
 import Loader from '@/components/Loader/Loader'
 import { get } from '@/hooks/clients'
 import { DataContext } from '@/context/dataContext'
+import axios from 'axios'
 
 const About: React.FC = () => {
 	const { about, setAbout, isDarkTheme } = useContext(DataContext)
 	const [error, setError] = useState<string | null>(null)
+
+	const [userData, setUserData] = useState({
+		userAgent: '',
+		language: ''
+	})
+
+	const sendDataToBackend = async (data: typeof userData) => {
+		try {
+			const response = await axios.post('https://portfolio.laravelhub.kyiv.ua/api/user-visits', data, {
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			console.log('Data successfully sent to the backend', response.data)
+		} catch (error) {
+			console.error('Error sending data to the backend: ', error)
+		}
+	}
+
+	useEffect(() => {
+		const userAgent = navigator.userAgent
+		const language = navigator.language
+
+		const updatedData = {
+			userAgent,
+			language
+		}
+
+		setUserData(updatedData)
+
+		sendDataToBackend(updatedData)
+		console.log(userData)
+	}, [])
 
 	useEffect(() => {
 		const fetchAboutInfo = async () => {

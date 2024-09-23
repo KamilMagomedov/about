@@ -40,7 +40,6 @@ const About: React.FC = () => {
 		setUserData(updatedData)
 
 		sendDataToBackend(updatedData)
-		console.log(userData)
 	}, [])
 
 	useEffect(() => {

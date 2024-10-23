@@ -95,7 +95,7 @@ export default function App() {
 				<Suspense>
 					<Routes>
 						<Route path='/' element={<About />} />
-						<Route path='/About' element={<About />} />
+						<Route path='/about' element={<About />} />
 						<Route path='/skills' element={<Skills />} />
 						<Route path='/services' element={<ServicesAsync />} />
 						<Route path='/experience' element={<ExperienceAsync />} />

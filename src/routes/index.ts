@@ -1,7 +1,7 @@
 import { IRoutes } from '@/hooks/interfaces'
 
 const routes: IRoutes[] = [
-	{ path: '/About', label: 'About', isActive: false },
+	{ path: '/about', label: 'About', isActive: false },
 	{ path: '/skills', label: 'Skills', isActive: false },
 	{ path: '/services', label: 'Services', isActive: false },
 	{ path: '/experience', label: 'Experience', isActive: false },

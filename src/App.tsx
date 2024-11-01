@@ -49,7 +49,7 @@ export default function App() {
 					} `}
 				>
 					<Link
-						to='/'
+						to='/about'
 						className={`logo mr-12 text-3xl sm:mr-0 sm:text-[25px] ${isDarkTheme ? 'text-white' : 'text-darkMain'}`}
 					>
 						Kamil<span className={`${isDarkTheme ? 'text-[#5C5BEE]' : 'text-[#8583e1]'}`}>.</span>CV

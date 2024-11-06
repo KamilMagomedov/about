@@ -18,7 +18,7 @@ const ListGeneralInfo: React.FC<IListGeneralInfoProps> = ({ image, title, value,
 	}
 
 	const styleTooltip = `absolute top-full left-1/2 transform -translate-x-1/2 
-		${theme === 'dark' ? 'bg-[#343541]' : 'bg-[#f7f8fc]'} text-white py-1 px-2  
+		${theme === 'dark' ? 'bg-[#343541]' : 'bg-[#7a798c]'} text-white py-1 px-2  
 		rounded whitespace-nowrap text-sm opacity-90 transition-opacity ease-in-out z-40`
 
 	return (

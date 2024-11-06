@@ -342,3 +342,7 @@ export interface IPost {
 	path: string
 	data: object | {}
 }
+
+export interface svgIcon {
+	fill: string | null
+}

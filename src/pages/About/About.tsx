@@ -21,8 +21,6 @@ const About: React.FC = () => {
 					'Content-Type': 'application/json'
 				}
 			})
-
-			console.log('Data successfully sent to the backend', response.data)
 		} catch (error) {
 			console.error('Error sending data to the backend: ', error)
 		}

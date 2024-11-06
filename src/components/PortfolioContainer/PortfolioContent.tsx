@@ -36,19 +36,23 @@ const PortfolioContent = React.forwardRef<HTMLDivElement, IContentTabs>(
 					onRequestClose={closeModal}
 					contentLabel='Project Modal'
 					ariaHideApp={false}
-					className={`modal_content relative flex w-[80%] flex-row rounded px-10 py-5 sm:flex-col lg:h-[570px] xl:h-[500px] xl:flex-row ${
+					className={`modal_content relative flex w-[80%] flex-row rounded px-10 py-10 sm:flex-col lg:h-[570px] xl:h-[500px] xl:flex-row ${
 						isDarkTheme ? 'bg-[#2A2A2A]' : 'bg-[#f5f0f0]'
 					}`}
 					overlayClassName='modal_overlay fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center'
 				>
 					{hasImage && <img src={imageUrl} alt='project' className='mb-4 mr-4 sm:w-full xl:w-[60%]' />}
-					<button onClick={closeModal} className='close-button absolute right-2 top-2'>
+					<button onClick={closeModal} className='close-button absolute right-6 top-4 text-2xl'>
 						X
 					</button>
 					<div className='flex h-full flex-col'>
 						<div className='descriptionModal relative flex flex-grow flex-col'>
-							<h2 className={`mb-2 text-2xl ${isDarkTheme ? 'active !text-lightBlue' : '!text-darkMain'}`}>{title}</h2>
-							<p className={`${isDarkTheme ? 'text-[#C2C2C2]' : 'text-mediumGray'} sm:mb-5`}>{description}</p>
+							<h2
+								className={`mb-2 text-2xl font-extrabold ${isDarkTheme ? 'active !text-lightBlue' : '!text-darkMain'}`}
+							>
+								{title}
+							</h2>
+							<p className={`${isDarkTheme ? 'text-[#C2C2C2]' : 'text-darkMain'} sm:mb-5`}>{description}</p>
 							<div className='showProject mb-[16px] mt-auto flex justify-center'>
 								<a
 									href={url}

@@ -15,9 +15,10 @@ import NavBar from '@/components/NavBar/NavBar'
 import Aside from './components/Aside/Aside'
 import Menu from '@/components/Menu/Menu'
 import { IRoutes } from './hooks/interfaces'
-import '@/styles/index.scss'
-import { DataContext } from './context/dataContext'
 import { Link } from 'react-router-dom'
+import { DataContext } from './context/dataContext'
+import Github from './components/UI/images/Github'
+import '@/styles/index.scss'
 
 export default function App() {
 	const { toggleTheme } = useTheme()
@@ -79,15 +80,24 @@ export default function App() {
 						</div>
 					</div>
 
-					<button
-						type='button'
-						onClick={toggleTheme}
-						className={`toggleTheme hidden 3xl:ml-10 3xl:block ${
-							isDarkTheme ? 'bg-[#5C5BEE]' : 'bg-darkMain'
-						} text-white`}
-					>
-						{isDarkTheme ? 'Light Mode' : 'Dark Mode'}
-					</button>
+					<div className='flex content-center items-center'>
+						<button
+							type='button'
+							onClick={toggleTheme}
+							className={`toggleTheme hidden 3xl:ml-10 3xl:block ${
+								isDarkTheme ? 'bg-[#5C5BEE]' : 'bg-darkMain'
+							} text-white`}
+						>
+							{isDarkTheme ? 'Light Mode' : 'Dark Mode'}
+						</button>
+						<Link
+							to='https://github.com/KamilMagomedov/my_portfolio'
+							target='_blank'
+							className='relative z-10 ml-[10px] h-full w-[60px] sm:hidden 3xl:inline-block'
+						>
+							<Github fill={`${isDarkTheme ? '#5C5BEE' : '#100f3a'}`} />
+						</Link>
+					</div>
 				</div>
 			</div>
 			<div className='relative flex h-full items-stretch sm:flex-col sm:overflow-y-auto 2xl:flex-row 2xl:overflow-hidden'>

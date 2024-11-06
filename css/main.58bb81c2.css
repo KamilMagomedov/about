@@ -564,8 +564,8 @@ video {
   left: 50%;
 }.right-0 {
   right: 0px;
-}.right-2 {
-  right: 0.5rem;
+}.right-6 {
+  right: 1.5rem;
 }.right-\[0\.8rem\] {
   right: 0.8rem;
 }.right-\[38px\] {
@@ -576,6 +576,8 @@ video {
   top: 50%;
 }.top-2 {
   top: 0.5rem;
+}.top-4 {
+  top: 1rem;
 }.top-full {
   top: 100%;
 }.z-10 {
@@ -615,6 +617,8 @@ video {
   margin-bottom: 60px;
 }.mb-\[7px\] {
   margin-bottom: 7px;
+}.ml-\[10px\] {
+  margin-left: 10px;
 }.ml-\[46px\] {
   margin-left: 46px;
 }.mr-12 {
@@ -681,6 +685,8 @@ video {
   width: 400px;
 }.w-\[53px\] {
   width: 53px;
+}.w-\[60px\] {
+  width: 60px;
 }.w-\[80\%\] {
   width: 80%;
 }.w-\[87\%\] {
@@ -729,6 +735,8 @@ video {
   flex-direction: column;
 }.flex-wrap {
   flex-wrap: wrap;
+}.content-center {
+  align-content: center;
 }.items-start {
   align-items: flex-start;
 }.items-center {
@@ -856,9 +864,6 @@ video {
 }.py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
-}.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
 }.pb-5 {
   padding-bottom: 1.25rem;
 }.pb-\[20px\] {
@@ -1038,7 +1043,7 @@ video {
   font-family: Montserrat, sans-serif;font-size:14px;font-weight:400;background:#fff;color:#a5a5a5;
 }body .ReactModalPortal{z-index:50;position:fixed}body p {
   font-family: Montserrat, sans-serif;font-size:14px;line-height:1.85714;font-weight:500;color:#838293;
-}body .logo{font-size:36px;font-weight:800}body .toggleTheme,body .throwButton{height:59px;min-width:130px;padding:0 22px;white-space:nowrap}body .throwButton{background:#8583e1;color:#fff}body .descriptionModal p{font-size:24px;color:#fff}.main_title_container {
+}body .logo{font-size:36px;font-weight:800}body .toggleTheme,body .throwButton{height:59px;min-width:130px;padding:0 22px;white-space:nowrap}body .throwButton{background:#8583e1;color:#fff}body .descriptionModal p{font-size:24px}.main_title_container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1220,6 +1225,10 @@ video {
 
   .sm\:flex {
     display: flex;
+  }
+
+  .sm\:hidden {
+    display: none;
   }
 
   .sm\:h-\[45px\] {
@@ -1790,6 +1799,10 @@ video {
 
   .\33xl\:block {
     display: block;
+  }
+
+  .\33xl\:inline-block {
+    display: inline-block;
   }
 
   .\33xl\:hidden {
